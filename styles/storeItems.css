@@ -1,0 +1,106 @@
+
+  #items-list{
+    padding-bottom: 10rem;
+        background-color: #EEE9E9;
+  }
+  #items-list > #content {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #items-list h1{
+    font-family: 'Sofia';
+    font-size: 3rem;
+    font-style: italic;
+    font-weight:1000;
+  }
+  #items-list h1 span {
+    font-size:5rem;
+    font-family: 'Amita';
+    font-style: oblique;
+    font-weight: 800; 
+    color:  #9D1309;
+   }
+   #items-list #content a{
+        font-size:2rem;
+        font-family: 'Amita';
+        width: 10rem;
+        font-weight: 800    ;
+        margin-left: 3rem;
+        border: 0.15rem solid black;
+       background-color: inherit;
+    color: black;}
+
+    #items-list #content  a:hover{
+         color: #9D1309;
+         background-color: black;
+        }
+#search{
+    margin-top: 2rem;
+    display: flex;margin-left: 3rem;
+ }
+ #search-form{
+   width: 50rem;
+   
+ }
+ .form-control::placeholder {  
+    font-size: 1rem;  
+    color: #aaa;  
+    font-family: 'Amita'; 
+  }  
+  #button-addon5{
+    background-color:#9D1309;
+    color:  black;
+  }
+  #items{
+margin-left: 10rem;
+margin-top: 5rem;
+  }
+  #items > .col-xs-4{
+    height: 30rem;
+    display: flex;
+    width: 32rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    /* background-color:azure; */
+  }
+  .card-img-top {
+    width: 32rem;
+    height: 24rem;
+    object-fit: cover;
+}
+.card-body{
+  height: 6rem;margin-top:-1rem;
+ background-color:#9D1309;  
+ color: white;
+  padding: 1.5rem;
+ font-family: 'Akaya Kanadaka';
+}
+
+.card-body h4{
+margin-left: 1rem;
+font-size: 2rem;
+}
+.card-body h4 span{
+margin-left:2rem;
+}
+.card-body h4 button{
+  float: right;
+  height: 2.8rem;
+  border-color: white;
+  border-width:0.1rem ;
+ background-color:#9D1309;
+ box-shadow: none;  
+}
+.card-body h4 button:hover{
+  cursor: pointer;
+  background-color: #F08080;
+  color: black;
+  border-color:black;
+}
+.badge:hover{
+  cursor: pointer;
+}

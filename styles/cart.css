@@ -7,25 +7,28 @@
     left: 0;
     background: rgba(0, 0, 0, 0.75);
     z-index: 10;
-    pointer-events: all;
-    display: block;
-   
+    display: none;pointer-events: none;
   }
   
   #backdrop.invisible {
     display: none;
     pointer-events: none;
-  
+  }
+  #backdrop.visible{
+    display: block;
+    pointer-events: all;
   }
 
 #captcha-modal{
+  display: none;
+  pointer-events: none;
 z-index: 100;
 position: fixed;
 color:teal;
 background-color: rgb(242, 247, 234);
 height: 60vh;width: 30%;
 top: 20%;margin-left: 35%;font-family:'Do-Hyeon';
-display: block;}
+}
 #captcha-modal span{
 font-size: large;
 margin-top: 0.8rem;
@@ -49,6 +52,10 @@ canvas:hover{
 #captcha-modal.invisible{
   display: none;
   pointer-events: none;
+}
+#captcha-modal.visible{
+display: block;
+pointer-events: all;
 }
 
 #cart-modal {

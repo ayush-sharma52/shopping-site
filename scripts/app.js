@@ -4,7 +4,8 @@ import { canvas } from "./UI/reCAPTCHA.js";
 const cartButton=document.getElementById('cart-btn');
 const backdrop=document.getElementById('backdrop');
 const cartModal=document.getElementById('cart-modal');
-const itemsListNode=document.querySelector('#items'); 
+const itemsListNode=document.querySelector('#items');
+const form=itemsListNode.previousElementSibling.querySelector('form'); 
 const cartItemsList=cartModal.querySelector('ul');
 const totalCost=cartModal.querySelector('#cost');
 const aTags=document.querySelectorAll('a');
@@ -38,7 +39,7 @@ cartModal.classList.toggle('visible');
 function cartButtonhandler(){
 toggleCart();
 }
-const availableItems=[];
+let availableItems=[];
 let total=0;
 // let cartItems=0;
 function updateTotal(){
@@ -67,12 +68,13 @@ cartModal.addEventListener('dragleave', event => {
 
 cartModal.addEventListener('drop', event => {
     const prjId = event.dataTransfer.getData('text/plain');
-    console.log(prjId);
+   console.log(prjId);
     availableItems.forEach(item=>{
         if(item.id==prjId)
-       item.addToCarthandler();
+      item.addToCarthandler();
    
-    })
+    });
+     console.log(availableItems);
     cartModal.classList.remove('droppable');
     // event.preventDefault(); // not required
 });
@@ -116,7 +118,7 @@ class storeItem{
             <p class="list-group-item-text">₹${cost}</p>`
             cartItemsList.prepend(newItem);
             return newItem;
-        } 
+ } 
     addToCarthandler=()=>{   //prepending every item we clicked to the cart-modal
         const h4HTML=this.itemNode.querySelector('h4').textContent.split('₹');
         const name=h4HTML[0]
@@ -128,10 +130,11 @@ class storeItem{
         deleteBtn.addEventListener('click',this.deleteBtnhandler);
     }
     connectDrag(){
-       this.itemNode.addEventListener('dragstart',event => {
-        event.dataTransfer.setData('text/plain',this.id);})
+        this.itemNode.addEventListener('dragstart',event => {
+        event.dataTransfer.setData('text/plain',this.id);
+      })
         this.itemNode.addEventListener('dragend',event=>{    
-        console.log(event);})
+        })
     }
 }
 function renderItems(itemsArray){
@@ -139,8 +142,20 @@ let id=0;
 itemsArray.forEach((i)=>{ 
     availableItems.push(new storeItem(i,id));
     ++id;
-})
+}) 
 }
+function formHandler(event){
+  event.preventDefault();
+  const input=event.target.querySelector('input').value;
+  if(input=='Shoes'||input=='All'|| input=='Shirt' || input=="Jeans" || input=='T-shirts' || input=='Jackets' ){
+  itemsListNode.innerHTML='';availableItems=[];//rendering the whole list again 
+  input!=='All' ?renderItems(itemsList.filter(item => item.split(' ')[1]==input)):renderItems(itemsList);
+  event.target.querySelector('input').value='';
+}
+else{
+  alert('Please enter correct item');
+  event.target.querySelector('input').value='';
+}}
 
 function clearAllbtnhandler(){
   cartItemsList.innerHTML='';
@@ -159,4 +174,6 @@ alert('please first draw something')
 
 })
 
+form.addEventListener('submit',formHandler);
 renderItems(itemsList);
+

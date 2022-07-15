@@ -9,7 +9,8 @@ const form=itemsListNode.previousElementSibling.querySelector('form');
 const cartItemsList=cartModal.querySelector('ul');
 const totalCost=cartModal.querySelector('#cost');
 const aTags=document.querySelectorAll('a');
-const clearAllbtn=cartModal.querySelector('button');
+const clearAllbtn=cartModal.querySelector('#clear');
+const closeBtn=cartModal.querySelector('#close');
 const captchaModal=document.getElementById('captcha-modal');
 const submitBtn=document.querySelector('#captcha-modal span')
 
@@ -147,6 +148,7 @@ cartModal.addEventListener('drop', event => {
 });
 cartButton.addEventListener('click',cartButtonhandler);
 clearAllbtn.addEventListener('click',clearAllbtnhandler);
+closeBtn.addEventListener('click',toggleCart);
 submitBtn.addEventListener('click',()=>{
 if(obj.drawn)
 toggleCaptcha();

@@ -59,6 +59,7 @@ pointer-events: all;
 }
 
 #cart-modal {
+  
   display:none;
   top:10%;
     padding: 0%;
@@ -69,7 +70,7 @@ pointer-events: all;
     background-color:#FFEC8B;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     overflow-y: auto;
-    height: auto;
+    max-height: 400px;
     font-family: 'Akaya Kanadaka';
    }
    #cart-modal.visible{
@@ -85,7 +86,7 @@ pointer-events: all;
    color: white;
    font-size: large;
    width: 8rem;
-   margin-left: 2rem;
+   margin-left: 3rem;
    margin-bottom: 2rem;
   }
    .total{

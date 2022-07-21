@@ -15,7 +15,7 @@
     pointer-events: none;
   }
   #backdrop.visible{
-    display: block;
+   display: block;
     pointer-events: all;
   }
 
@@ -26,8 +26,9 @@ z-index: 100;
 position: fixed;
 color:teal;
 background-color: rgb(242, 247, 234);
-height: 60vh;width: 30%;
-top: 20%;margin-left: 35%;font-family:'Do-Hyeon';
+height: 40rem;width:35rem;
+ top: 25%;margin-left: 37%;
+font-family:'Do-Hyeon'; 
 }
 #captcha-modal span{
 font-size: large;
@@ -43,6 +44,7 @@ background-color: rgb(151, 224, 109);
 
 canvas {
     margin-top: 10%;
+    height: auto;width: auto;
     /* width: 100%; if you want to add responsiveness but it will affect cursor calibration*/
     background-color: black;
 }
@@ -112,4 +114,12 @@ pointer-events: all;
   }
   #cart-modal p{
     font-size: large;
+  }
+  @media(max-width:768px){
+    #cart-modal{
+      width: 25vw;
+    }
+    #captcha-modal{
+      top: 5%;margin-left: 7%;
+    }
   }

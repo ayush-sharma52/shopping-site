@@ -10,13 +10,18 @@ body {
   }
 .navbar{
   background:#EEE9E9;
-  width: 100%;
-  height: 6rem;
+  width: auto;
+  height: 100%;
 }
 .navbar-header{
     margin-top: 0.4rem;
 }
-.nav.navbar-nav li a {
+.nav.navbar-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .nav.navbar-nav li a {
     color: #C67171;
     font-family:'Amita';
     font-size: 2rem;
@@ -25,21 +30,28 @@ body {
     margin-left: 5rem;
 }
 .nav.navbar-nav.navbar-right {
-  margin-right:6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.nav.navbar-nav.navbar-left {
-    margin-left: 10%;
-}
+@media(min-width:768px){
+  .nav.navbar-nav.navbar-right{
+  margin-right:5rem;
+  margin-top: 1rem;}
+  
+  .nav.navbar-nav.navbar-left {
+    margin-left: 8%;}
 
+}
 .nav.navbar-nav.navbar-right li{    
   font-size: 2rem;
     font-style: italic;
-    margin-top: 1rem;
     border: 0.1rem solid black;
     background-color:#EEE9E9;
     padding:0.4rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    width: 11rem;
 }
 .nav.navbar-nav.navbar-right  :hover {
   cursor: pointer;
@@ -55,6 +67,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #home h2 {

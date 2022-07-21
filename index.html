@@ -1,53 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>shopping site</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-  <link rel="stylesheet" href="./styles/app.css">
-  <link rel="stylesheet" href="./styles/cart.css">
-  <link rel="stylesheet" href="./styles/storeItems.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
-  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
-  <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Do Hyeon' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Akaya Kanadaka' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="./scripts/app.js" type="module" defer></script>
+  <head>
+    <title>shopping site</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</head>
-<body>
-  <div id="backdrop"></div>
-  <div id="captcha-modal" class="container">
-  <h1 style="font-family:'Segoe UI' ;">reCAPTCHA</h1>
-    Draw something in the box and then click submit to confirm you are not a robot
-    <canvas id="canvas" height="220" width="375"></canvas>
-    <span>submit</span>
-  </div>
-<nav class="navbar ">
-  <div class="container-fluid">
-    <div class="navbar-header ">
-      <img src="./images/images-removebg-preview.png" style="height:50px ;width: 50px;" alt="logo">
+    <link rel="stylesheet" href="./styles/app.css" />
+    <link rel="stylesheet" href="./styles/cart.css" />
+    <link rel="stylesheet" href="./styles/storeItems.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sofia"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Do Hyeon"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Akaya Kanadaka"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amita"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="./scripts/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+    <div id="captcha-modal" class="container">
+      <h1 style="font-family: 'Segoe UI'">reCAPTCHA</h1>
+      Draw something in the box and then click submit to confirm you are not a
+      robot
+      <!-- <canvas id="canvas" height="220" width="375"></canvas> -->
+      <canvas id="canvas"></canvas>
+      <span>submit</span>
     </div>
-    <ul class="nav navbar-nav navbar-left">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about-us">about</a></li>
-      <li><a href="#items-list">store</a></li>
-      <li><a href="#map">location</a> </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li id="cart-btn"><span class="glyphicon glyphicon-shopping-cart">  
-</span> <b> Cart </b> </li>
-    </ul>
-  </div>
-</nav>
- 
-<!-- <template id="cart-item-template">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <img
+            src="./images/images-removebg-preview.png"
+            style="height: 50px; width: 50px"
+            alt="logo"
+          />
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about-us">about</a></li>
+          <li><a href="#items-list">store</a></li>
+          <li><a href="#map">location</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="cart-btn">
+            <span class="glyphicon glyphicon-shopping-cart"> </span>
+            <b> Cart </b>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- <template id="cart-item-template">
   <li class="list-group-item">
     <span class="badge">delete</span> 
     <h4 class="list-group-item-heading"></h4>
@@ -55,72 +84,81 @@
   </li>
 </template> -->
 
-<div id="cart-modal" class="container" >
-   <ul class="list-group">
+    <div id="cart-modal" class="container">
+      <ul class="list-group"></ul>
+      <section class="total">
+        <h1 style="font-size: x-large">Total <span id="cost">₹0</span></h1>
+      </section>
+      <div class="buttons">
+        <button type="button" id="clear" class="btn btn-outline-secondary">
+          clear all
+        </button>
+        <button type="button" id="close" class="btn btn-outline-secondary">
+          Close
+        </button>
+      </div>
+    </div>
 
-   </ul>
-   <section class="total">
-    <h1 style="font-size:x-large;">Total <span id="cost" >₹0</span></h1>
-   </section> 
-<div class="buttons">
-<button type="button" id="clear" class="btn btn-outline-secondary">clear all</button>
-<button type="button" id="close" class="btn btn-outline-secondary" >Close</button>
-</div>
-</div>
+    <div id="home" class="container-fluid home">
+      <h2>welcome to sharma's</h2>
+      <h1>Emporio</h1>
+      <a href="#menu" class="btn Explore" role="button">Explore</a>
+    </div>
 
-
-<div id="home" class="container-fluid home"> 
-<h2>welcome to sharma's</h2>
-<h1>Emporio</h1>
-<a href="#menu" class="btn Explore" role="button">Explore</a>
-</div>
-
-<div  id="about-us" class="container-fluid" >
-        <div class="row">
-         <div id ="description" class="col-xs-6">
+    <div id="about-us" class="container-fluid">
+      <div class="row">
+        <div id="description" class="col-xs-6">
           <h1>About<span> US</span></h1>
-          
-          <p>Ours is a retail store which deals in premium quality clothes.we have all quality, all weather clothes 
-            also we do have a groom section infact a whole floor dedicated for that.our customer is our foremost 
-            priority whose satisfaction is the one most important thing that our management and staff always looks for.
+
+          <p>
+            Ours is a retail store which deals in premium quality clothes.we
+            have all quality, all weather clothes also we do have a groom
+            section infact a whole floor dedicated for that.our customer is our
+            foremost priority whose satisfaction is the one most important thing
+            that our management and staff always looks for.
           </p>
           <a href="#menu" class="btn Explore" role="button">Explore</a>
-          </div>
-         <div id = "jacket" class="col-xs-6 ">
-        <img src="./images/images.jfif"> 
+        </div>
+        <div id="jacket" class="col-xs-6">
+          <img src="./images/images.jfif" />
+        </div>
       </div>
-     </div>
-</div>
-<div id="items-list" class="container-fluid">
-<div class="row" id="content">
-    <h1>Our<span>  Store</span></h1>
-    <div class="col-sm-12 text-center" id="buttons">
-      <a href="#menu" class="btn Explore" role="button">All</a>
-      <a href="#menu" class="btn Explore" role="button">Shirt</a>
-      <a href="#menu" class="btn Explore" role="button">Jeans</a>
-      <a href="#menu" class="btn Explore" role="button">T-shirts</a>
-      <a href="#menu" class="btn Explore" role="button">Jackets</a>
-      <a href="#menu" class="btn Explore" role="button">Shoes</a>
     </div>
-    
-    <div class="bg-white p-5  shadow" >  
-      <form action="">  
-        <div class="input-group mb-4" id="search"> 
-          <button id="button-addon5" type="submit" class="btn"> <i class="fa fa-search"> </i> </button>  
-          <input type="search" placeholder="Enter any item from above list.." id="search-form" aria-describedby="button-addon5" class="form-control"> 
-        </div>  
-      </form>
-   </div>
- </div> 
-<!-- 1st row of the fluid container ends here now 2nd row -->
-<div class="row" id="items">
-</div>
-</div>
+    <div id="items-list" class="container-fluid">
+      <div class="row" id="content">
+        <h1>Our<span> Store</span></h1>
+        <div class="col-sm-12 text-center" id="buttons">
+          <a href="#menu" class="btn Explore" role="button">All</a>
+          <a href="#menu" class="btn Explore" role="button">Shirt</a>
+          <a href="#menu" class="btn Explore" role="button">Jeans</a>
+          <a href="#menu" class="btn Explore" role="button">T-shirts</a>
+          <a href="#menu" class="btn Explore" role="button">Jackets</a>
+          <a href="#menu" class="btn Explore" role="button">Shoes</a>
+        </div>
 
-<section id="selected-place">
-  <div id="map">
-   
-  </div>
-</section>
-</body>
+        <div class="bg-white p-5 shadow">
+          <form action="">
+            <div class="input-group mb-4" id="search">
+              <button id="button-addon5" type="submit" class="btn">
+                <i class="fa fa-search"> </i>
+              </button>
+              <input
+                type="search"
+                placeholder="Enter any item from above list.."
+                id="search-form"
+                aria-describedby="button-addon5"
+                class="form-control"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- 1st row of the fluid container ends here now 2nd row -->
+      <div class="row" id="items"></div>
+    </div>
+
+    <section id="selected-place">
+      <div id="map"></div>
+    </section>
+  </body>
 </html>
